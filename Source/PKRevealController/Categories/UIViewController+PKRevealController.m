@@ -48,7 +48,14 @@ static char revealControllerKey;
         {
             return [self.parentViewController revealController];
         }
+      
+        UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
         
+        if ([rootViewController isKindOfClass:[PKRevealController class]])
+        {
+            return (PKRevealController *)rootViewController;
+        }
+      
         return nil;
     }
     
